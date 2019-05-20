@@ -13,18 +13,10 @@
         body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
       when: state == "OPEN"
 
-    - name: fetch current version
-      uri:
-        url: "{{serviceurl}}/api/version"
-        return_content: yes
-      register: version
-      ignore_errors: no
-
     - name: trigger pull back
       uri:
         url: "{{serviceurl}}/api/version?newBuildNumber=3"
         return_content: yes
-      when: version == ( "Running build number\: 4 Production-Mode\: true" )
 
     - name: push success comment to dynatrace
       uri:
