@@ -1,0 +1,7 @@
+---
+serviceurl: "http://simplenodeservice.keptnsample-prod-keptnsample.YOURKEPTNIP.xip.io"
+tenanturl: "YOUR_TENANT_URL"
+apitoken: "XxGxR8BZS7uHOnSWnTYhA"
+commentuser: "Ansible Playbook"
+dtcommentapiurl: "https://{{tenanturl}}/api/v1/problem/details/{{pid}}/comments?Api-Token={{apitoken}}"
+dteventapiurl: "https://{{tenanturl}}/api/v1/events/?Api-Token={{apitoken}}"
