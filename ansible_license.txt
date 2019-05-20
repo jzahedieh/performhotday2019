@@ -1,0 +1,11 @@
+{
+    "company_name": "Dynatrace", 
+    "contact_email": "kristof.renders@dynatrace.com", 
+    "contact_name": "Kristof Renders", 
+    "hostname": "f2355d14fdac4cb2b58175a58cfb1765", 
+    "instance_count": 10, 
+    "license_date": 2135753488, 
+    "license_key": "7fe741ac7e3438d4a82e030f80e7defcee2130764aaa5426e58cefa13c9b8d78", 
+    "license_type": "basic", 
+    "subscription_name": "Red Hat Ansible Tower, Self-Support (10 Managed Nodes)"
+}
