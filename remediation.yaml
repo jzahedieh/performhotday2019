@@ -5,13 +5,13 @@
     relative_time: "hour"
 
   tasks:
-    #- name: push comment to dynatrace
-    #  uri:
-    #    url: "{{dtcommentapiurl}}"
-    #    method: POST
-    #    body_format: json
-    #    body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
-    #  when: state == "OPEN"
+    - name: push comment to dynatrace
+      uri:
+        url: "{{dtcommentapiurl}}"
+        method: POST
+        body_format: json
+        body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
+      when: state == "OPEN"
 
     - name: trigger pull back
       uri:
