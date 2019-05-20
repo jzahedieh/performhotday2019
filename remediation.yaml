@@ -5,18 +5,47 @@
     relative_time: "hour"
 
   tasks:
-    - name: push comment to dynatrace
-      uri:
-        url: "{{dtcommentapiurl}}"
-        method: POST
-        body_format: json
-        body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
-      when: state == "OPEN"
+    #- name: push comment to dynatrace
+    #  uri:
+    #    url: "{{dtcommentapiurl}}"
+    #    method: POST
+    #    body_format: json
+    #    body: "{ \"comment\": \"Remediation playbook started.\", \"user\": \"{{commentuser}}\", \"context\": \"Ansible Tower\" }"
+    #  when: state == "OPEN"
 
     - name: trigger pull back
       uri:
         url: "{{serviceurl}}/api/version?newBuildNumber=3"
         return_content: yes
+    
+    - name: update promotion configuration for {{dt_app}} service
+      uri:
+        url: "{{dteventapiurl}}"
+        method: POST
+        body_format: json
+        body: '{
+              "eventType": "CUSTOM_CONFIGURATION",
+              "attachRules": {
+                "tagRule" : [{
+                    "meTypes" : ["SERVICE"],
+                    "tags" : [ {
+                      "context" : "CONTEXTLESS",
+                      "key" : "service",
+                      "value" : "simplenodeservice"            
+                    }, {
+                      "context" : "CONTEXTLESS",
+                      "key" : "environment",
+                      "value" : "keptnsample-staging-keptnsample" 
+                    }
+                    ]
+                  }]
+              },
+              "description":"Deployed version 3.0.0",
+              "source":"Ansible Tower",
+              "configuration":"deployed version"
+            }'
+      return_content: yes
+      register: promotionresponse
 
     - name: push success comment to dynatrace
       uri:
