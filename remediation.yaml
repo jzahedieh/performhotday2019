@@ -42,9 +42,7 @@
               },
               "deploymentVersion":"3.0",
               "deploymentName":"simplenodeservice",
-              "description":"Deployed version 3.0.0",
-              "source":"Ansible Tower",
-              "configuration":"deployed version"
+              "source":"Ansible Tower"
             }'
         return_content: yes
 
