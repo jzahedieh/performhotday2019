@@ -44,8 +44,7 @@
               "source":"Ansible Tower",
               "configuration":"deployed version"
             }'
-      return_content: yes
-      register: promotionresponse
+        return_content: yes
 
     - name: push success comment to dynatrace
       uri:
