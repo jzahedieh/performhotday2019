@@ -24,7 +24,7 @@
         method: POST
         body_format: json
         body: '{
-              "eventType": "CUSTOM_CONFIGURATION",
+              "eventType": "CUSTOM_DEPLOYMENT",
               "attachRules": {
                 "tagRule" : [{
                     "meTypes" : ["SERVICE"],
