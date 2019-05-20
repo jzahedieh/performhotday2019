@@ -40,8 +40,8 @@
                     ]
                   }]
               },
-              "deploymentVersion":"3.0",
-              "deploymentName":"simplenodeservice",
+              "deploymentVersion":"3.0.0",
+              "deploymentName":"simplenodeservice reverted to 3.0.0",
               "source":"Ansible Tower"
             }'
         return_content: yes
